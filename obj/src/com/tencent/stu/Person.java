@@ -1,10 +1,13 @@
 package com.tencent.stu;
 
-public class Person {
+public abstract class Person {
     public int age;
     public String name;
 
     private int personPrivate;
+
+    // 存在抽象方法时，类必须是抽象类
+    public abstract void speak();
 
     public int getAge() {
         return age;
