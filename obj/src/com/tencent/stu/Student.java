@@ -11,6 +11,8 @@ public class Student extends Person implements Action, Cloneable{
 
     // 构造代码块先于构造函数,每次创建对象执行
     public static String teacher;
+    private int subject;
+
     {
         teacher = "no teacher";
     }

@@ -43,5 +43,6 @@ public final class StudentTest extends Object{
 
         }
         StudentTest.getEat(student1);
+
     }
 }
