@@ -1,6 +1,7 @@
 package com.tencent.stu;
 
-public class Student extends Person implements Action{
+// 接口里没有方法则是标记性接口
+public class Student extends Person implements Action, Cloneable{
     // 子类不能继承父类任何构造方法
     // 子类拥有父类所有变量方法，但private不能访问
     // 虚拟机将非private final static的方法放入虚方法表，继承时替换成真正的方法地址
@@ -35,17 +36,23 @@ public class Student extends Person implements Action{
         this.name = name;
     }
 
-    // 重写时，方法的访问权限至少和父类一样广
-    // 返回类型是父类返回类型或者其子类（协变covariant）
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("age");
-        sb.append(age).append(", name: ").append(name).append(", teacher:").append(teacher);
-        return sb.toString();
-    }
-
     @Override
     public void eat() {
         System.out.println("Student Eat");
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    // 默认浅拷贝
+    // 深拷贝需要自己写
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
